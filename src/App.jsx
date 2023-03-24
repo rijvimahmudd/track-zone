@@ -1,19 +1,20 @@
 import ClockList from './components/clock-list';
 import LocalClock from './components/local-clock';
+import ClockDisplay from './components/shared/clock-display';
 import useClock from './hooks/useClock';
 
 function App() {
-	const { clock: local } = useClock();
-	const { clock: est } = useClock('EST');
-	const { clock: pst } = useClock('PST');
-	const { clock: utc } = useClock('UTC', 6 * 60);
-	const { clock: edt } = useClock('EDT');
-	const { clock: bst } = useClock('BST');
-	const { clock: mst } = useClock('MST');
+	const { date: localDate, localTimezone, localOffset } = useClock();
 
 	return (
 		<div className="App">
-			<LocalClock />
+			{localDate && (
+				<LocalClock
+					date={localDate}
+					timezone={localTimezone}
+					offset={-localOffset}
+				/>
+			)}
 			<ClockList />{' '}
 		</div>
 	);
