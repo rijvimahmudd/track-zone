@@ -5,7 +5,8 @@ const ClockDisplay = ({ date, title, timezone, offset }) => {
 	return (
 		<>
 			<h1>{title}</h1>
-			<h3>{format(date, 'yyyy-MM-dd hh:mm:ss aaa')}</h3>
+			<h3>{format(date, 'hh:mm:ss aaa')}</h3>
+			<small>{format(date, 'dd-MM-yyyy')}</small>
 			<p>
 				{timezone} |{' '}
 				{localOffset > 0
