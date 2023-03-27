@@ -16,6 +16,7 @@ const LocalClock = ({ clock, updateClock }) => {
 			offset,
 		});
 	}, [date]);
+
 	return (
 		<div>
 			{date && (
