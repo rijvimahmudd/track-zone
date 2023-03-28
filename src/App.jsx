@@ -3,25 +3,28 @@ import ClockList from './components/clock-list';
 import LocalClock from './components/local-clock';
 
 const LOCAL_CLOCK_INIT = {
-	title: 'My clock',
+	title: 'My Clock',
 	timezone: '',
 	offset: 0,
 	date: null,
 };
 
-function App() {
+const App = () => {
 	const [localClock, setLocalClock] = useState({ ...LOCAL_CLOCK_INIT });
 
 	const updateLocalClock = data => {
-		setLocalClock({ ...localClock, ...data });
+		setLocalClock({
+			...localClock,
+			...data,
+		});
 	};
 
 	return (
-		<div className="App">
+		<div>
 			<LocalClock clock={localClock} updateClock={updateLocalClock} />
-			<ClockList />{' '}
+			<ClockList />
 		</div>
 	);
-}
+};
 
 export default App;
