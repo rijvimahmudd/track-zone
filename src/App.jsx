@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { generate } from 'shortid';
 import ClockList from './components/clock-list';
 import LocalClock from './components/local-clock';
 
@@ -12,6 +13,8 @@ const LOCAL_CLOCK_INIT = {
 const App = () => {
 	const [localClock, setLocalClock] = useState({ ...LOCAL_CLOCK_INIT });
 
+	const [clocks, setClocks] = useState([]);
+
 	const updateLocalClock = data => {
 		setLocalClock({
 			...localClock,
@@ -19,10 +22,40 @@ const App = () => {
 		});
 	};
 
+	const createClock = clock => {
+		clock.id = generate();
+		setClocks([...clocks, clock]);
+		console.log(clock);
+	};
+
+	const updateClock = updatedClock => {
+		const updatedClocks = clocks.map(clock => {
+			if (clock.id === updatedClock.id) return updatedClock;
+
+			return clock;
+		});
+
+		setClocks(updatedClocks);
+	};
+
+	const deleteClock = id => {
+		const filteredArray = clocks.filter(clock => clock.id !== id);
+
+		setClocks(filteredArray);
+	};
+
 	return (
 		<div>
-			<LocalClock clock={localClock} updateClock={updateLocalClock} />
-			<ClockList />
+			<LocalClock
+				clock={localClock}
+				updateClock={updateLocalClock}
+				createClock={createClock}
+			/>
+			<ClockList
+				clocks={clocks}
+				updateClock={updateClock}
+				deleteClock={deleteClock}
+			/>
 		</div>
 	);
 };
