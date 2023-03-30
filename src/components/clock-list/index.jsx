@@ -1,6 +1,6 @@
 import ClockListItem from './clock-list-item';
 
-const ClockList = ({ clocks = [], updateClock, deleteClock }) => {
+const ClockList = ({ clocks = [], updateClock, deleteClock, localClock }) => {
 	return (
 		<div>
 			<h3>Other clocks</h3>
@@ -14,6 +14,7 @@ const ClockList = ({ clocks = [], updateClock, deleteClock }) => {
 						<ClockListItem
 							clock={clock}
 							key={clock.id}
+							localClock={localClock}
 							updateClock={updateClock}
 							deleteClock={deleteClock}
 						/>
