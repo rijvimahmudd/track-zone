@@ -1,6 +1,8 @@
 import ClockListItem from './clock-list-item';
 
-const ClockList = ({ clocks = [], updateClock, deleteClock, localClock }) => {
+import { nanoid } from 'nanoid';
+
+const ClockList = ({ clocks, updateClock, deleteClock, localClock }) => {
 	return (
 		<div>
 			<h3>Other clocks</h3>
@@ -13,7 +15,7 @@ const ClockList = ({ clocks = [], updateClock, deleteClock, localClock }) => {
 					{clocks.map(clock => (
 						<ClockListItem
 							clock={clock}
-							key={clock.id}
+							key={nanoid()}
 							localClock={localClock}
 							updateClock={updateClock}
 							deleteClock={deleteClock}

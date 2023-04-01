@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { generate } from 'shortid';
+import { nanoid } from 'nanoid';
 import ClockList from './components/clock-list';
 import LocalClock from './components/local-clock';
 
@@ -23,7 +23,7 @@ const App = () => {
 	};
 
 	const createClock = clock => {
-		clock.id = generate();
+		clock.id = nanoid();
 		setClocks([...clocks, clock]);
 		console.log(clock);
 	};
