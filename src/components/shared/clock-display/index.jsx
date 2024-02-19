@@ -14,6 +14,9 @@ const Div = styled.div`
 const Title = styled.h1`
 	color: ${({ theme }) => theme.colors.primary.text};
 	font-size: 1.8rem;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 `;
 
 const SubTitle = styled.h3`
