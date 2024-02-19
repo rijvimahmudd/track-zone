@@ -70,7 +70,6 @@ const App = () => {
 		const filteredArray = clocks.filter(clock => clock.id !== id);
 
 		setClocks(filteredArray);
-		console.log('deleted', filteredArray);
 	};
 
 	return (

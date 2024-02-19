@@ -50,6 +50,8 @@ const ClockNotFoundTitle = styled.p`
 `;
 
 const ClockList = ({ clocks, updateClock, deleteClock, localClock }) => {
+	if (!clocks) return null;
+
 	return (
 		<Div>
 			<Title>comparison clocks</Title>
@@ -60,7 +62,7 @@ const ClockList = ({ clocks, updateClock, deleteClock, localClock }) => {
 				</ClockNotFoundTitle>
 			) : (
 				<CardGroup>
-					{clocks.map(clock => (
+					{clocks?.map(clock => (
 						<ClockListItem
 							clock={clock}
 							key={nanoid()}
