@@ -1,7 +1,8 @@
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import { addSeconds } from 'date-fns';
-const useTimer = (date)=>{
-    const [timer, setTimer] = useState(null);
+
+const useTimer = (date) => {
+	const [timer, setTimer] = useState(date);
 
 	useEffect(() => {
 		setTimer(date);
@@ -10,6 +11,7 @@ const useTimer = (date)=>{
 	let timerId = null;
 	useEffect(() => {
 		if (!timer || timerId !== null) return;
+
 		timerId = setInterval(() => {
 			setTimer(addSeconds(timer, 1));
 		}, 1000);
@@ -19,7 +21,7 @@ const useTimer = (date)=>{
 		};
 	}, [timer]);
 
-    return timer;
-}
+	return timer;
+};
 
 export default useTimer;

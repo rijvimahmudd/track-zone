@@ -1,18 +1,18 @@
-import { addMinutes } from 'date-fns';
 import { useEffect, useState } from 'react';
+import { addMinutes } from 'date-fns';
 import { TIMEZONE_OFFSET } from '../constants/timezone';
 
 const useClock = (timezone, offset) => {
 	const [localDate, setLocalDate] = useState(null);
-	const [localTimezone, setLocalTimezone] = useState(null);
 	const [localOffset, setLocalOffset] = useState(0);
-	const [utc, setUtc] = useState(null);
+	const [localTimezone, setLocalTimezone] = useState('');
+	const [utc, setUTC] = useState(null);
 
 	useEffect(() => {
 		let d = new Date();
 		const lo = d.getTimezoneOffset();
 		d = addMinutes(d, lo);
-		setUtc(d);
+		setUTC(d);
 		setLocalOffset(lo);
 	}, []);
 
@@ -33,7 +33,7 @@ const useClock = (timezone, offset) => {
 
 	return {
 		date: localDate,
-		dateUtc: utc,
+		dateUTC: utc,
 		offset: offset || -localOffset,
 		timezone: timezone || localTimezone,
 	};
