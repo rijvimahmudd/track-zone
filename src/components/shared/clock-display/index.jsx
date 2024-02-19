@@ -1,6 +1,7 @@
 import { format } from 'date-fns';
 import React from 'react';
 import styled from 'styled-components';
+import getWeekOfMonth from '../../../utils/getWeekOfMonth';
 
 const Div = styled.div`
 	color: ${({ theme }) => theme.colors.primary.text};
@@ -50,6 +51,14 @@ const ClockDisplay = ({ date, title, timezone, offset }) => {
 			<SubTitle style={{ fontSize: '1.2rem', fontWeight: '600' }}>
 				{format(date, 'hh:mm:ss a')}
 			</SubTitle>
+			<p
+				style={{
+					fontSize: '0.7rem',
+					fontWeight: '300',
+				}}
+			>
+				{`${getWeekOfMonth(date)} of the month`}
+			</p>
 			<Badge>
 				{timezone}
 				{offsetHr > 0 ? `+${Math.abs(offsetHr)}` : `-${Math.abs(offsetHr)}`}
