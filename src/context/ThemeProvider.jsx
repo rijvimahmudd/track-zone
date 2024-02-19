@@ -3,13 +3,14 @@ import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 const theme = {
 	colors: {
 		primary: {
-			bg: '#FAC232',
-			fg: '#FBBF24',
-			text: '#292009',
-			badge: '#FFCA42',
+			bg: '#E9A8F2',
+			fg: '#F3CCF3',
+			text: '#0A1D56',
+			badge: '#FFE7C1',
+			dark: '#0A1D56',
 		},
 		secondary: {
-			bg: '#3F2F08',
+			bg: '#492E87',
 			fg: '#ffffff',
 		},
 	},

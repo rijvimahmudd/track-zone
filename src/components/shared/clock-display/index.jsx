@@ -27,7 +27,7 @@ const SubTitle = styled.h3`
 `;
 
 const Badge = styled.p`
-	color: ${({ theme }) => theme.colors.primary.text};
+	color: ${({ theme }) => theme.colors.primary.dark};
 	font-size: 0.8rem;
 	margin: 0 0;
 	font-weight: 600;

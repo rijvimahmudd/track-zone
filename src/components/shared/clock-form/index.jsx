@@ -29,24 +29,24 @@ const Input = styled.input`
 	padding: 0.4rem 0.8rem;
 	background-color: ${({ theme }) => theme.colors.primary.fg};
 	border: none;
-	outline: 1px solid #272a29;
+	outline: 1px solid ${({ theme }) => theme.colors.primary.text};
 	border-radius: 0.2rem;
 	&::placeholder {
-		color: #272a29;
+		color: ${({ theme }) => theme.colors.primary.text} !important;
+		font-weight: 200 !important;
+		opacity: 0.5;
 	}
 	caret-color: #000;
 	color: ${({ theme }) => theme.colors.primary.text} !important;
 `;
 
 const Select = styled.select`
-	// appearance: none;
-	outline: none;
 	padding: 0.2rem 0.4rem;
 	background-color: ${({ theme }) => theme.colors.primary.fg};
 	border-radius: 0.2rem;
 	color: ${({ theme }) => theme.colors.primary.text};
 	border: none;
-	outline: 1px solid #272a29;
+	outline: 1px solid ${({ theme }) => theme.colors.primary.text};
 `;
 
 const Option = styled.option``;
