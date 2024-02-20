@@ -48,6 +48,17 @@ const SettingFormCard = styled.div`
 	border-radius: 0.8rem;
 `;
 
+const ButtonOutlined = styled(Button)`
+	background-color: transparent;
+	color: ${({ theme }) => theme.colors.primary.text};
+	border: 1px solid ${({ theme }) => theme.colors.primary.text};
+	&:hover {
+		background-color: ${({ theme }) => theme.colors.secondary.bg};
+		color: ${({ theme }) => theme.colors.primary.fg};
+		transition: all 0.3s ease;
+	}
+`;
+
 const ClockActions = ({
 	local = false,
 	clock,
@@ -72,7 +83,9 @@ const ClockActions = ({
 			) : (
 				<ButtonGroup>
 					<Button onClick={() => setIsEdit(!isEdit)}>Edit</Button>
-					<Button onClick={() => deleteClock(clock.id)}>Delete</Button>
+					<ButtonOutlined onClick={() => deleteClock(clock.id)}>
+						Delete
+					</ButtonOutlined>
 				</ButtonGroup>
 			)}
 			{isEdit && (
