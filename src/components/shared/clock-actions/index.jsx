@@ -14,7 +14,7 @@ const Button = styled.button`
 		color: ${({ theme }) => theme.colors.primary.fg};
 		transition: color 0.3s ease;
 	}
-
+	color: ${({ theme }) => theme.colors.secondary.fg};
 	margin-top: 0.8rem;
 `;
 
